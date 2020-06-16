@@ -1,0 +1,62 @@
+Day1_Classroom_Queries:
+=======================
+
+select first_name,last_name from employees
+
+select * from employees
+
+select first_name,salary from employees
+
+select * from employees where first_name='Neena'
+
+select * from employees where salary=9000
+
+select * from employees where salary > 6000
+
+
+select * from employees where FIRST_NAME='David'
+
+select * from employees where FIRST_NAME!='Neena'
+
+
+select * from employees where first_name='David' and last_name='Lee'
+
+
+select * from employees where first_name ='Neena' or first_name = 'Lex'
+
+
+select * from employees where first_name ='Neena' or last_name='Lee'
+
+
+
+select * from employees where first_name NOT IN ('Neena','Lex') 
+
+select * from employees where salary>6500 and salary<9000
+
+select * from employees where salary>=6000 and salary<=9000
+
+select * from employees where salary between 6000 and 9000
+
+
+select * from employees where first_name like 'A%'
+
+select * from employees where first_name like '%au%'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
