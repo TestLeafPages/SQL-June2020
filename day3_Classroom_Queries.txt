@@ -1,0 +1,90 @@
+select length(first_name)-length(replace(upper(first_name),'E')) as occurance, first_name fName from employees
+
+select first_name||' earns '||salary||' monthly but wants '||salary*3 from employees
+
+
+
+select * from employees
+
+select lpad(salary,7,'$'),salary from employees
+
+select round(months_between(sysdate,hire_date)), employee_id,first_name from employees
+
+select add_months(sysdate,-6) from dual
+
+select add_months(hire_date,6), hire_date from employees
+
+select next_day(sysdate,1) from dual
+
+select next_day(hire_date,2),hire_date from employees
+
+select next_day(hire_date,'Monday'),hire_date from employees
+
+select next_day('22-Jun-20',4) from dual
+
+select last_day('15-06-2020') from dual
+
+select last_day(hire_date) from employees
+
+select '15-06-2020' from dual
+
+
+select to_char(emp.hire_date,'dd/mm/yyyy hh:mi:ss am') , emp.* from employees emp where first_name='Hari'
+
+
+select to_char(sysdate,'dd/mm/yyyy hh:mi:ss pm') from dual
+
+select to_char(sysdate,'hh24') from dual
+
+select to_date('26 february 1978','dd month yyyy') from dual
+
+select to_date('26/02/78','dd/mm/yy') from dual
+
+select * from employees
+
+
+if employye_id=100 then change that to 'A'
+if employye_id=101 then change that to 'B'
+else change to X
+
+select decode(employee_id,100,'A',101,'B','X'), employee_id from employees
+
+select decode(a,1,'A',2,'B','X') post, a from t1
+
+
+select case
+when a=1 then 'A'
+when a=2 then 'B'
+else 'x'
+ end
+from t1
+
+
+select * from employees
+
+
+select case 
+when salary>=40000 then 'elite'
+when salary<9000 then 'associate'
+else 'medium'
+end position, employees.* from employees
+
+select greatest('A','D','X') from dual
+
+
+select greatest('A','D','X') from dual
+
+select greatest(first_name,last_name), employees.* from employees
+
+
+select round(9.3) from dual
+
+select trunc(9.9432423) from dual
+
+select ceil(9.1) from dual
+
+select mod(5,2) from dual
+
+select sign(5) from dual
+
+select abs(-54534533) from dual
