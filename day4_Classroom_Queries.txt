@@ -1,0 +1,90 @@
+DECODE( expression , search , result [, search , result]... [, default] )
+
+select DECODE(SIGN(sysdate-hire_date), 1, hire_date, sysdate) from employees
+
+select decode(least(first_name,last_name),first_name,first_name,last_name) official_name, first_name, last_name from employees
+
+select nvl(a,5), a from t1
+
+select nvl2(a,10,0), a from t1
+
+select nullif(first_name,last_name) matching, first_name,last_name from employees where employee_id=207
+
+select coalesce(commission_pct,manager_id,salary) value, commission_pct,manager_id,salary from employees
+
+select coalesce(null,null,null,null,5,null) from dual
+
+
+create table t2 (a number(10));
+insert into t2 values(5);
+insert into t2 values(null);
+
+
+select nvl(a,5), a from t1
+
+select nvl2(a,10,0), a from t1
+
+select nullif(first_name,last_name) matching, first_name,last_name from employees where employee_id=207
+
+select coalesce(commission_pct,manager_id,salary) value, commission_pct,manager_id,salary from employees
+
+select coalesce(null,null,null,null,5,null) from dual
+
+select max(salary), min(salary),sum(salary),round(avg(salary)),count(salary) from employees 
+
+// max, min , count can be applicable for char and numbers
+select max(first_name), min(first_name), count(first_name) from employees
+
+// avg and sum only for numbers
+select avg(first_name) from employees
+
+//All the aggregate functions will exclude null values
+
+select count(a) from t1
+
+select count(*) from t1
+
+select * from t1
+
+select avg(a) from t1
+
+select count(commission_pct) from employees
+
+//* cannot be applied for other aggregate function
+
+select sum(*) from t1
+
+
+select department_id,job_id, max(salary) from employees group by job_id,department_id
+
+select department_id, count(*) from employees  group by department_id having count(*)>6
+
+select department_id, count(*) from employees where manager_id is not null  group by department_id having count(*)>6
+
+select * from employees where salary = (select max(salary) from employees where salary != 40000)
+
+select max(salary) from employees
+
+
+
+with xyz as
+(select first_name, salary,dense_rank() over(order by salary desc) rnk from employees)
+select * from xyz where rnk=3
+
+
+with temp as
+(select first_name, salary,row_number() over(order by salary desc) row_num from employees )
+select * from temp where row_num<6
+
+
+
+
+
+
+
+
+
+
+
+
+
