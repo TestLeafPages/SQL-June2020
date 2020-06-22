@@ -1,0 +1,44 @@
+with temp as
+(select first_name,department_id, salary,dense_rank() over(partition by department_id order by salary desc) rank from employees)
+select * from temp where rank=1 and department_id in (10,20)
+select * from employees
+union all
+select * from employees_info
+
+select employee_id as id,first_name as name from employees
+union
+select department_id as id,department_name as name from departments
+union all
+select employee_id as id,first_name as name from employees_info
+
+
+select * from employees
+intersect
+select * from employees_info
+
+
+select * from employees
+minus
+select * from employees_info
+
+
+select * from employees_info
+minus
+select * from employees
+
+select * from employees_info
+
+select * from all_tables where owner='HR'
+
+select e.first_name , d.department_name from employees e full outer join departments d on e.department_id = d.department_id
+
+select e.first_name , d.department_name ,l.city from departments d inner join employees e on e.department_id = d.department_id inner join locations l on d.location_id = l.location_id and e.first_name='Hari' 
+
+
+select  e.first_name , d.department_name ,l.city  from 
+employees e, departments d, locations l
+where
+e.department_id = d.department_id and
+d.location_id = l.location_id and
+e.first_name = 'Hari'
+
