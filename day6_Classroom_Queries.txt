@@ -1,0 +1,76 @@
+select * from regions
+
+insert into regions(region_id,region_name) values (5,'Africa')
+
+insert into regions values (7,'Australia')
+
+desc employees_info
+
+insert into employees_info(employee_id,first_name,phone_number,salary,commission_pct,manager_id,department_id) values (1000,'hari','42342',42342,.56,100,90)
+
+commit
+
+rollback
+
+
+select * from employees_info
+
+
+insert into employees_info select * from employees where commission_pct is not null and manager_id is not null and department_id is not null ;
+
+
+select * from regions
+
+update regions set region_name = 'Middle East' where region_id=4
+
+update employees_info set last_name='Radhakrishnan', email='dasda@gmail.com' where employee_id=1000
+
+
+delete from employees_info 
+
+truncate table employees_info
+
+commit
+
+rollback
+543.25
+precision,scale
+
+select * from students
+
+insert into students values(100,'Hari','Chennai',10)
+
+desc students
+
+create table students (
+student_id number(10) not null,
+student_name varchar2(50),
+student_address varchar2(100),
+department_id number(10)
+)
+
+
+alter table students add join_date date
+
+alter table students modify student_name number
+
+alter table students drop column department_id
+
+
+drop table students
+
+drop table employees
+
+Insert All
+  into employees_info values ()
+  into employees_info values ()
+  into employees_info values ()
+  into employees_info values ()
+select * from dual;
+
+
+
+
+
+
+
