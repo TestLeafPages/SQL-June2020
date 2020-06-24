@@ -1,0 +1,86 @@
+create table students (
+student_id number (10) not null,
+student_name varchar2(50),
+student_address varchar2(100)
+)
+
+create table students (
+student_id number (10) unique,
+student_name varchar2(50),
+student_address varchar2(100)
+)
+
+create table students (
+student_id number (10) primary key,
+student_name varchar2(50),
+student_address varchar2(100)
+)
+
+create table students (
+student_id number (10),
+student_name varchar2(50),
+student_address varchar2(100),
+constraint pk_stud primary key (student_id,student_name)
+)
+
+
+create table students (
+student_id number (10) not null unique,
+student_name varchar2(50),
+student_address varchar2(100)
+)
+
+select * from students
+
+
+drop table students
+
+create table students (
+student_id number (10) primary key,
+student_name varchar2(50),
+student_address varchar2(100),
+course_id number(10) ,
+foreign key (course_id) references course(course_id)
+
+)
+
+create table course(
+course_id number(10) primary key,
+course_name varchar2(50)
+)
+
+drop table voter;
+create table voter(
+voter_id number(10),
+voter_name varchar2(50),
+place varchar2(50) default 'Bangalore',
+age number(3),
+check (place='Chennai'),
+check (age>=18)
+)
+
+insert into voter(voter_id,voter_name,place,age) values (100,'Hari','Chennai',18)
+
+insert into voter(voter_id,voter_name,age) values (200,'Hari',18)
+
+select * from voter
+
+insert into course values(30,'ece')
+
+select * from course
+
+
+insert into students(student_id,student_name,student_address,course_id) values (300,'Hari','Chennai',30)
+
+
+
+insert into students(student_id,student_name,student_address) values (200,'Hari','Chennai')
+insert into students(student_id,student_name,student_address) values (100,'Prasad','Chennai')
+
+insert into students(student_name,student_address) values ('Prasad','Chennai')
+
+select * from students
+
+delete from students where course_id=30
+
+delete from course where course_id=30
